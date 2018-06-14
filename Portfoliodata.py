@@ -116,6 +116,60 @@ if __name__ == "__main__":
     
     res = minimize(target_func, x0, method='SLSQP', bounds = bounds, constraints = constraints)
     
+    
+    
+    
+    
+    #-----Test the Mathematica Example in Python-----
+    R = np.array([[1.075, 1.084, 1.061, 1.052, 1.055, 1.077, 1.109, 1.127, 1.156, 
+  1.117, 1.092, 1.103, 1.08, 1.063, 1.061, 1.071, 1.087, 1.08, 1.057, 
+  1.036, 1.031, 1.045], [0.942, 1.02, 1.056, 1.175, 1.002, 0.982, 
+  0.978, 0.947, 1.003, 1.465, 0.985, 1.159, 1.366, 1.309, 0.925, 
+  1.086, 1.212, 1.054, 1.193, 1.079, 1.217, 0.889], [0.852, 0.735, 
+  1.371, 1.236, 0.926, 1.064, 1.184, 1.323, 0.949, 1.215, 1.224, 
+  1.061, 1.316, 1.186, 1.052, 1.165, 1.316, 0.968, 1.304, 1.076, 1.1, 
+  1.012], [0.815, 0.716, 1.385, 1.266, 0.974, 1.093, 1.256, 1.337, 
+  0.963, 1.187, 1.235, 1.03, 1.326, 1.161, 1.023, 1.179, 1.292, 0.938,
+   1.342, 1.09, 1.113, 0.999], [0.698, 0.662, 1.318, 1.28, 1.093, 
+  1.146, 1.307, 1.367, 0.99, 1.213, 1.217, 0.903, 1.333, 1.086, 0.959,
+   1.165, 1.204, 0.83, 1.594, 1.174, 1.162, 0.968], [1.023, 1.002, 
+  0.123, 1.156, 1.03, 1.012, 1.023, 1.031, 1.073, 1.311, 1.08, 1.15, 
+  1.213, 1.156, 1.023, 1.076, 1.142, 1.083, 1.161, 1.076, 1.11, 
+  0.965], [0.851, 0.768, 1.354, 1.025, 1.181, 1.326, 1.048, 1.226, 
+  0.977, 0.981, 1.237, 1.074, 1.562, 1.694, 1.246, 1.283, 1.105, 
+  0.766, 1.121, 0.878, 1.326, 1.078], [1.677, 1.722, 0.76, 0.96, 1.2, 
+  1.295, 2.212, 1.296, 0.688, 1.084, 0.872, 0.825, 1.006, 1.216, 
+  1.244, 0.861, 0.977, 0.922, 0.958, 0.926, 1.146, 0.99]])
+    
+    names = ["3m T-bill", "long T-bond", "SP500", "Wiltshire 5000", "Corporate \
+Bond", "NASDQ", "EAFE", "Gold"]
+    
+    R_DataFrame = pd.DataFrame(R.transpose(), columns = names)
+    
+    covmat = R_DataFrame.cov()
+    meanval = R_DataFrame.mean()    
+    
+    #-----Minimize the Mathematica Problem-----
+    
+    x0 = (lambda x: x/np.sum(x))(np.random.uniform(low = 0, high = 1, size = len(meanval)))
+    
+    ER = meanval.values
+    
+    constraints1 = ({'type': 'eq', 'fun': lambda weights:  np.sum(weights) - 1})
+    constraints2 = ({'type': 'ineq', 'fun': lambda weights:  weights @ ER - 1.10})
+    constraints = [constraints1, constraints2]
+    
+    bounds = [(0,1)] * len(meanval)
+        
+    def min_markowitz(weights, cov_mat):
+        return weights @ (cov_mat @ weights)  
+    
+    def target_func(weights):
+        return min_markowitz(weights, covmat)
+    
+    res = minimize(target_func, x0, jac = False, method='SLSQP', bounds = bounds, constraints = constraints)
+    
+    
     #-----Test Stuff-----    
     
     p1 = np.array(all_prices[0].price.pct_change(1).values)
