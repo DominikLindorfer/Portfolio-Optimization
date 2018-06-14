@@ -1,0 +1,1222 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     42500,       1214]
+NotebookOptionsPosition[     38847,       1080]
+NotebookOutlinePosition[     39181,       1095]
+CellTagsIndexPosition[     39138,       1092]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Mathematica Example", "Title",
+ CellChangeTimes->{{3.7379500459277983`*^9, 3.737950051363563*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"R", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "1.075`", ",", "1.084`", ",", "1.061`", ",", "1.052`", ",", "1.055`", 
+       ",", "1.077`", ",", "1.109`", ",", "1.127`", ",", "1.156`", ",", 
+       "1.117`", ",", "1.092`", ",", "1.103`", ",", "1.08`", ",", "1.063`", 
+       ",", "1.061`", ",", "1.071`", ",", "1.087`", ",", "1.08`", ",", 
+       "1.057`", ",", "1.036`", ",", "1.031`", ",", "1.045`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "0.942`", ",", "1.02`", ",", "1.056`", ",", "1.175`", ",", "1.002`", 
+       ",", "0.982`", ",", "0.978`", ",", "0.947`", ",", "1.003`", ",", 
+       "1.465`", ",", "0.985`", ",", "1.159`", ",", "1.366`", ",", "1.309`", 
+       ",", "0.925`", ",", "1.086`", ",", "1.212`", ",", "1.054`", ",", 
+       "1.193`", ",", "1.079`", ",", "1.217`", ",", "0.889`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "0.852`", ",", "0.735`", ",", "1.371`", ",", "1.236`", ",", "0.926`", 
+       ",", "1.064`", ",", "1.184`", ",", "1.323`", ",", "0.949`", ",", 
+       "1.215`", ",", "1.224`", ",", "1.061`", ",", "1.316`", ",", "1.186`", 
+       ",", "1.052`", ",", "1.165`", ",", "1.316`", ",", "0.968`", ",", 
+       "1.304`", ",", "1.076`", ",", "1.1`", ",", "1.012`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "0.815`", ",", "0.716`", ",", "1.385`", ",", "1.266`", ",", "0.974`", 
+       ",", "1.093`", ",", "1.256`", ",", "1.337`", ",", "0.963`", ",", 
+       "1.187`", ",", "1.235`", ",", "1.03`", ",", "1.326`", ",", "1.161`", 
+       ",", "1.023`", ",", "1.179`", ",", "1.292`", ",", "0.938`", ",", 
+       "1.342`", ",", "1.09`", ",", "1.113`", ",", "0.999`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "0.698`", ",", "0.662`", ",", "1.318`", ",", "1.28`", ",", "1.093`", 
+       ",", "1.146`", ",", "1.307`", ",", "1.367`", ",", "0.99`", ",", 
+       "1.213`", ",", "1.217`", ",", "0.903`", ",", "1.333`", ",", "1.086`", 
+       ",", "0.959`", ",", "1.165`", ",", "1.204`", ",", "0.83`", ",", 
+       "1.594`", ",", "1.174`", ",", "1.162`", ",", "0.968`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "1.023`", ",", "1.002`", ",", "0.123`", ",", "1.156`", ",", "1.03`", 
+       ",", "1.012`", ",", "1.023`", ",", "1.031`", ",", "1.073`", ",", 
+       "1.311`", ",", "1.08`", ",", "1.15`", ",", "1.213`", ",", "1.156`", 
+       ",", "1.023`", ",", "1.076`", ",", "1.142`", ",", "1.083`", ",", 
+       "1.161`", ",", "1.076`", ",", "1.11`", ",", "0.965`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "0.851`", ",", "0.768`", ",", "1.354`", ",", "1.025`", ",", "1.181`", 
+       ",", "1.326`", ",", "1.048`", ",", "1.226`", ",", "0.977`", ",", 
+       "0.981`", ",", "1.237`", ",", "1.074`", ",", "1.562`", ",", "1.694`", 
+       ",", "1.246`", ",", "1.283`", ",", "1.105`", ",", "0.766`", ",", 
+       "1.121`", ",", "0.878`", ",", "1.326`", ",", "1.078`"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "1.677`", ",", "1.722`", ",", "0.76`", ",", "0.96`", ",", "1.2`", ",", 
+       "1.295`", ",", "2.212`", ",", "1.296`", ",", "0.688`", ",", "1.084`", 
+       ",", "0.872`", ",", "0.825`", ",", "1.006`", ",", "1.216`", ",", 
+       "1.244`", ",", "0.861`", ",", "0.977`", ",", "0.922`", ",", "0.958`", 
+       ",", "0.926`", ",", "1.146`", ",", "0.99`"}], "}"}]}], "}"}]}], 
+  ";"}]], "Input",
+ CellID->281723545],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TableForm", "[", "R", "]"}]], "Input",
+ CellChangeTimes->{{3.737950114446694*^9, 3.737950116627754*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"1.075`", "1.084`", "1.061`", "1.052`", "1.055`", "1.077`", "1.109`", 
+     "1.127`", "1.156`", "1.117`", "1.092`", "1.103`", "1.08`", "1.063`", 
+     "1.061`", "1.071`", "1.087`", "1.08`", "1.057`", "1.036`", "1.031`", 
+     "1.045`"},
+    {"0.942`", "1.02`", "1.056`", "1.175`", "1.002`", "0.982`", "0.978`", 
+     "0.947`", "1.003`", "1.465`", "0.985`", "1.159`", "1.366`", "1.309`", 
+     "0.925`", "1.086`", "1.212`", "1.054`", "1.193`", "1.079`", "1.217`", 
+     "0.889`"},
+    {"0.852`", "0.735`", "1.371`", "1.236`", "0.926`", "1.064`", "1.184`", 
+     "1.323`", "0.949`", "1.215`", "1.224`", "1.061`", "1.316`", "1.186`", 
+     "1.052`", "1.165`", "1.316`", "0.968`", "1.304`", "1.076`", "1.1`", 
+     "1.012`"},
+    {"0.815`", "0.716`", "1.385`", "1.266`", "0.974`", "1.093`", "1.256`", 
+     "1.337`", "0.963`", "1.187`", "1.235`", "1.03`", "1.326`", "1.161`", 
+     "1.023`", "1.179`", "1.292`", "0.938`", "1.342`", "1.09`", "1.113`", 
+     "0.999`"},
+    {"0.698`", "0.662`", "1.318`", "1.28`", "1.093`", "1.146`", "1.307`", 
+     "1.367`", "0.99`", "1.213`", "1.217`", "0.903`", "1.333`", "1.086`", 
+     "0.959`", "1.165`", "1.204`", "0.83`", "1.594`", "1.174`", "1.162`", 
+     "0.968`"},
+    {"1.023`", "1.002`", "0.123`", "1.156`", "1.03`", "1.012`", "1.023`", 
+     "1.031`", "1.073`", "1.311`", "1.08`", "1.15`", "1.213`", "1.156`", 
+     "1.023`", "1.076`", "1.142`", "1.083`", "1.161`", "1.076`", "1.11`", 
+     "0.965`"},
+    {"0.851`", "0.768`", "1.354`", "1.025`", "1.181`", "1.326`", "1.048`", 
+     "1.226`", "0.977`", "0.981`", "1.237`", "1.074`", "1.562`", "1.694`", 
+     "1.246`", "1.283`", "1.105`", "0.766`", "1.121`", "0.878`", "1.326`", 
+     "1.078`"},
+    {"1.677`", "1.722`", "0.76`", "0.96`", "1.2`", "1.295`", "2.212`", 
+     "1.296`", "0.688`", "1.084`", "0.872`", "0.825`", "1.006`", "1.216`", 
+     "1.244`", "0.861`", "0.977`", "0.922`", "0.958`", "0.926`", "1.146`", 
+     "0.99`"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.737950116883651*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"n", ",", "nyear"}], "}"}], "=", 
+   RowBox[{"Dimensions", "[", "R", "]"}]}], ";"}]], "Input",
+ CellID->153203716],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ER", "=", 
+  RowBox[{"Mean", "[", 
+   RowBox[{"Transpose", "@", "R"}], "]"}]}]], "Input",
+ CellID->446438878],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1.0781363636363637`", ",", "1.0929090909090906`", ",", 
+   "1.1197727272727274`", ",", "1.1236363636363633`", ",", 
+   "1.1213181818181817`", ",", "1.0463181818181817`", ",", 
+   "1.1412272727272728`", ",", "1.1289545454545453`"}], "}"}]], "Output",
+ CellChangeTimes->{3.737950104042842*^9},
+ ImageSize->{495, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Covariants", "=", 
+   RowBox[{"Covariance", "[", 
+    RowBox[{"Transpose", "[", "R", "]"}], "]"}]}], ";"}]], "Input",
+ CellID->563381096],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"vars", " ", "=", " ", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Subscript", "[", 
+       RowBox[{"x", ",", "#"}], "]"}], "&"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<3m T-bill\>\"", ",", "\"\<long T-bond\>\"", ",", "\"\<SP500\>\"", 
+       ",", "\"\<Wiltshire 5000\>\"", ",", "\"\<Corporate Bond\>\"", ",", 
+       "\"\<NASDQ\>\"", ",", "\"\<EAFE\>\"", ",", "\"\<Gold\>\""}], "}"}]}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"vars", " ", "=", " ", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Subscript", "[", 
+       RowBox[{"x", ",", "#"}], "]"}], "&"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<3m T-bill\>\"", ",", "\"\<long T-bond\>\"", ",", "\"\<SP500\>\"", 
+       ",", "\"\<Wiltshire 5000\>\"", ",", "\"\<Corporate Bond\>\"", ",", 
+       "\"\<NASDQ\>\"", ",", "\"\<EAFE\>\"", ",", "\"\<Gold\>\""}], "}"}]}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{"FindMinimum", "[", 
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"vars", ".", "Covariants", ".", "vars"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Total", "[", "vars", "]"}], "\[Equal]", "1"}], "&&", 
+      RowBox[{
+       RowBox[{"vars", ".", "ER"}], "\[GreaterEqual]", "1.12"}], "&&", 
+      RowBox[{"Apply", "[", 
+       RowBox[{"And", ",", 
+        RowBox[{"Thread", "[", 
+         RowBox[{"Greater", "[", 
+          RowBox[{"vars", ",", "0"}], "]"}], "]"}]}], "]"}]}]}], "}"}], ",", 
+   "vars"}], "]"}]}], "Input",
+ CellID->475457553],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.012620477685151411`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["x", "\<\"3m T-bill\"\>"], "\[Rule]", 
+      "0.15596121312357847`"}], ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"long T-bond\"\>"], "\[Rule]", 
+      "0.014824344841414889`"}], ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"SP500\"\>"], "\[Rule]", "0.37896399276503084`"}],
+      ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"Wiltshire 5000\"\>"], "\[Rule]", 
+      "0.0022860813966016262`"}], ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"Corporate Bond\"\>"], "\[Rule]", 
+      "0.000019827306868698155`"}], ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"NASDQ\"\>"], "\[Rule]", 
+      "5.653768061944357`*^-6"}], ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"EAFE\"\>"], "\[Rule]", "0.24427872341352172`"}], 
+     ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"Gold\"\>"], "\[Rule]", "0.2036601633849219`"}]}],
+     "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.737950106348035*^9},
+ ImageSize->{505, 57},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Dominik\[CloseCurlyQuote]s Example", "Title",
+ CellChangeTimes->{{3.737950144157001*^9, 3.737950152595319*^9}, {
+  3.7379509708620787`*^9, 3.737950971067342*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["R"], "Input",
+ CellChangeTimes->{3.737950155471755*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "1.075`", ",", "1.084`", ",", "1.061`", ",", "1.052`", ",", "1.055`", ",",
+      "1.077`", ",", "1.109`", ",", "1.127`", ",", "1.156`", ",", "1.117`", 
+     ",", "1.092`", ",", "1.103`", ",", "1.08`", ",", "1.063`", ",", "1.061`",
+      ",", "1.071`", ",", "1.087`", ",", "1.08`", ",", "1.057`", ",", 
+     "1.036`", ",", "1.031`", ",", "1.045`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.942`", ",", "1.02`", ",", "1.056`", ",", "1.175`", ",", "1.002`", ",", 
+     "0.982`", ",", "0.978`", ",", "0.947`", ",", "1.003`", ",", "1.465`", 
+     ",", "0.985`", ",", "1.159`", ",", "1.366`", ",", "1.309`", ",", 
+     "0.925`", ",", "1.086`", ",", "1.212`", ",", "1.054`", ",", "1.193`", 
+     ",", "1.079`", ",", "1.217`", ",", "0.889`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.852`", ",", "0.735`", ",", "1.371`", ",", "1.236`", ",", "0.926`", ",",
+      "1.064`", ",", "1.184`", ",", "1.323`", ",", "0.949`", ",", "1.215`", 
+     ",", "1.224`", ",", "1.061`", ",", "1.316`", ",", "1.186`", ",", 
+     "1.052`", ",", "1.165`", ",", "1.316`", ",", "0.968`", ",", "1.304`", 
+     ",", "1.076`", ",", "1.1`", ",", "1.012`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.815`", ",", "0.716`", ",", "1.385`", ",", "1.266`", ",", "0.974`", ",",
+      "1.093`", ",", "1.256`", ",", "1.337`", ",", "0.963`", ",", "1.187`", 
+     ",", "1.235`", ",", "1.03`", ",", "1.326`", ",", "1.161`", ",", "1.023`",
+      ",", "1.179`", ",", "1.292`", ",", "0.938`", ",", "1.342`", ",", 
+     "1.09`", ",", "1.113`", ",", "0.999`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.698`", ",", "0.662`", ",", "1.318`", ",", "1.28`", ",", "1.093`", ",", 
+     "1.146`", ",", "1.307`", ",", "1.367`", ",", "0.99`", ",", "1.213`", ",",
+      "1.217`", ",", "0.903`", ",", "1.333`", ",", "1.086`", ",", "0.959`", 
+     ",", "1.165`", ",", "1.204`", ",", "0.83`", ",", "1.594`", ",", "1.174`",
+      ",", "1.162`", ",", "0.968`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "1.023`", ",", "1.002`", ",", "0.123`", ",", "1.156`", ",", "1.03`", ",", 
+     "1.012`", ",", "1.023`", ",", "1.031`", ",", "1.073`", ",", "1.311`", 
+     ",", "1.08`", ",", "1.15`", ",", "1.213`", ",", "1.156`", ",", "1.023`", 
+     ",", "1.076`", ",", "1.142`", ",", "1.083`", ",", "1.161`", ",", 
+     "1.076`", ",", "1.11`", ",", "0.965`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.851`", ",", "0.768`", ",", "1.354`", ",", "1.025`", ",", "1.181`", ",",
+      "1.326`", ",", "1.048`", ",", "1.226`", ",", "0.977`", ",", "0.981`", 
+     ",", "1.237`", ",", "1.074`", ",", "1.562`", ",", "1.694`", ",", 
+     "1.246`", ",", "1.283`", ",", "1.105`", ",", "0.766`", ",", "1.121`", 
+     ",", "0.878`", ",", "1.326`", ",", "1.078`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "1.677`", ",", "1.722`", ",", "0.76`", ",", "0.96`", ",", "1.2`", ",", 
+     "1.295`", ",", "2.212`", ",", "1.296`", ",", "0.688`", ",", "1.084`", 
+     ",", "0.872`", ",", "0.825`", ",", "1.006`", ",", "1.216`", ",", 
+     "1.244`", ",", "0.861`", ",", "0.977`", ",", "0.922`", ",", "0.958`", 
+     ",", "0.926`", ",", "1.146`", ",", "0.99`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.7379501557764*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Covariants", "=", 
+   RowBox[{"Covariance", "[", 
+    RowBox[{"Transpose", "[", "R", "]"}], "]"}]}], ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"vars", " ", "=", " ", 
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Subscript", "[", 
+      RowBox[{"x", ",", "#"}], "]"}], "&"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<3m T-bill\>\"", ",", "\"\<long T-bond\>\"", ",", "\"\<SP500\>\"", 
+      ",", "\"\<Wiltshire 5000\>\"", ",", "\"\<Corporate Bond\>\"", ",", 
+      "\"\<NASDQ\>\"", ",", "\"\<EAFE\>\"", ",", "\"\<Gold\>\""}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{3.737950180187114*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   SubscriptBox["x", "\<\"3m T-bill\"\>"], ",", 
+   SubscriptBox["x", "\<\"long T-bond\"\>"], ",", 
+   SubscriptBox["x", "\<\"SP500\"\>"], ",", 
+   SubscriptBox["x", "\<\"Wiltshire 5000\"\>"], ",", 
+   SubscriptBox["x", "\<\"Corporate Bond\"\>"], ",", 
+   SubscriptBox["x", "\<\"NASDQ\"\>"], ",", 
+   SubscriptBox["x", "\<\"EAFE\"\>"], ",", 
+   SubscriptBox["x", "\<\"Gold\"\>"]}], "}"}]], "Output",
+ CellChangeTimes->{3.737950180425815*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Apply", "[", 
+  RowBox[{"And", ",", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"Greater", "[", 
+     RowBox[{"vars", ",", "0"}], "]"}], "]"}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubscriptBox["x", "\<\"3m T-bill\"\>"], ">", "0"}], "&&", 
+  RowBox[{
+   SubscriptBox["x", "\<\"long T-bond\"\>"], ">", "0"}], "&&", 
+  RowBox[{
+   SubscriptBox["x", "\<\"SP500\"\>"], ">", "0"}], "&&", 
+  RowBox[{
+   SubscriptBox["x", "\<\"Wiltshire 5000\"\>"], ">", "0"}], "&&", 
+  RowBox[{
+   SubscriptBox["x", "\<\"Corporate Bond\"\>"], ">", "0"}], "&&", 
+  RowBox[{
+   SubscriptBox["x", "\<\"NASDQ\"\>"], ">", "0"}], "&&", 
+  RowBox[{
+   SubscriptBox["x", "\<\"EAFE\"\>"], ">", "0"}], "&&", 
+  RowBox[{
+   SubscriptBox["x", "\<\"Gold\"\>"], ">", "0"}]}]], "Output",
+ CellChangeTimes->{3.737950563367577*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"vars", ".", 
+  RowBox[{"(", 
+   RowBox[{"Covariants", ".", "vars"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.737950267310315*^9, 3.737950444627201*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubscriptBox["x", "\<\"Gold\"\>"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"0.0008419112554112569`", " ", 
+      SubscriptBox["x", "\<\"3m T-bill\"\>"]}], "-", 
+     RowBox[{"0.016440080086580086`", " ", 
+      SubscriptBox["x", "\<\"Corporate Bond\"\>"]}], "-", 
+     RowBox[{"0.014033370129870134`", " ", 
+      SubscriptBox["x", "\<\"EAFE\"\>"]}], "+", 
+     RowBox[{"0.12708480735930738`", " ", 
+      SubscriptBox["x", "\<\"Gold\"\>"]}], "-", 
+     RowBox[{"0.01406924242424243`", " ", 
+      SubscriptBox["x", "\<\"long T-bond\"\>"]}], "+", 
+     RowBox[{"0.006076491341991336`", " ", 
+      SubscriptBox["x", "\<\"NASDQ\"\>"]}], "-", 
+     RowBox[{"0.018539963203463208`", " ", 
+      SubscriptBox["x", "\<\"SP500\"\>"]}], "-", 
+     RowBox[{"0.016611493506493512`", " ", 
+      SubscriptBox["x", "\<\"Wiltshire 5000\"\>"]}]}], ")"}]}], "+", 
+  RowBox[{
+   SubscriptBox["x", "\<\"NASDQ\"\>"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"0.0010904307359307377`", " ", 
+      SubscriptBox["x", "\<\"3m T-bill\"\>"]}], "-", 
+     RowBox[{"0.0017404870129870105`", " ", 
+      SubscriptBox["x", "\<\"Corporate Bond\"\>"]}], "-", 
+     RowBox[{"0.0057367900432900455`", " ", 
+      SubscriptBox["x", "\<\"EAFE\"\>"]}], "+", 
+     RowBox[{"0.006076491341991336`", " ", 
+      SubscriptBox["x", "\<\"Gold\"\>"]}], "+", 
+     RowBox[{"0.013228077922077924`", " ", 
+      SubscriptBox["x", "\<\"long T-bond\"\>"]}], "+", 
+     RowBox[{"0.04896994155844158`", " ", 
+      SubscriptBox["x", "\<\"NASDQ\"\>"]}], "-", 
+     RowBox[{"0.004473924242424239`", " ", 
+      SubscriptBox["x", "\<\"SP500\"\>"]}], "-", 
+     RowBox[{"0.005340878787878786`", " ", 
+      SubscriptBox["x", "\<\"Wiltshire 5000\"\>"]}]}], ")"}]}], "+", 
+  RowBox[{
+   SubscriptBox["x", "\<\"3m T-bill\"\>"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"0.0009277424242424243`", " ", 
+      SubscriptBox["x", "\<\"3m T-bill\"\>"]}], "-", 
+     RowBox[{"0.00032109307359307423`", " ", 
+      SubscriptBox["x", "\<\"Corporate Bond\"\>"]}], "-", 
+     RowBox[{"0.0013150324675324713`", " ", 
+      SubscriptBox["x", "\<\"EAFE\"\>"]}], "+", 
+     RowBox[{"0.0008419112554112569`", " ", 
+      SubscriptBox["x", "\<\"Gold\"\>"]}], "-", 
+     RowBox[{"0.00008479653679653641`", " ", 
+      SubscriptBox["x", "\<\"long T-bond\"\>"]}], "+", 
+     RowBox[{"0.0010904307359307377`", " ", 
+      SubscriptBox["x", "\<\"NASDQ\"\>"]}], "+", 
+     RowBox[{"0.00010474675324675264`", " ", 
+      SubscriptBox["x", "\<\"SP500\"\>"]}], "+", 
+     RowBox[{"0.000060813852813852694`", " ", 
+      SubscriptBox["x", "\<\"Wiltshire 5000\"\>"]}]}], ")"}]}], "+", 
+  RowBox[{
+   SubscriptBox["x", "\<\"long T-bond\"\>"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "0.00008479653679653641`"}], " ", 
+      SubscriptBox["x", "\<\"3m T-bill\"\>"]}], "+", 
+     RowBox[{"0.011817077922077927`", " ", 
+      SubscriptBox["x", "\<\"Corporate Bond\"\>"]}], "+", 
+     RowBox[{"0.011035640692640694`", " ", 
+      SubscriptBox["x", "\<\"EAFE\"\>"]}], "-", 
+     RowBox[{"0.01406924242424243`", " ", 
+      SubscriptBox["x", "\<\"Gold\"\>"]}], "+", 
+     RowBox[{"0.023152277056277062`", " ", 
+      SubscriptBox["x", "\<\"long T-bond\"\>"]}], "+", 
+     RowBox[{"0.013228077922077924`", " ", 
+      SubscriptBox["x", "\<\"NASDQ\"\>"]}], "+", 
+     RowBox[{"0.011331740259740266`", " ", 
+      SubscriptBox["x", "\<\"SP500\"\>"]}], "+", 
+     RowBox[{"0.010588346320346326`", " ", 
+      SubscriptBox["x", "\<\"Wiltshire 5000\"\>"]}]}], ")"}]}], "+", 
+  RowBox[{
+   SubscriptBox["x", "\<\"EAFE\"\>"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "0.0013150324675324713`"}], " ", 
+      SubscriptBox["x", "\<\"3m T-bill\"\>"]}], "+", 
+     RowBox[{"0.024485352813852817`", " ", 
+      SubscriptBox["x", "\<\"Corporate Bond\"\>"]}], "+", 
+     RowBox[{"0.055422660173160165`", " ", 
+      SubscriptBox["x", "\<\"EAFE\"\>"]}], "-", 
+     RowBox[{"0.014033370129870134`", " ", 
+      SubscriptBox["x", "\<\"Gold\"\>"]}], "+", 
+     RowBox[{"0.011035640692640694`", " ", 
+      SubscriptBox["x", "\<\"long T-bond\"\>"]}], "-", 
+     RowBox[{"0.0057367900432900455`", " ", 
+      SubscriptBox["x", "\<\"NASDQ\"\>"]}], "+", 
+     RowBox[{"0.021928625541125544`", " ", 
+      SubscriptBox["x", "\<\"SP500\"\>"]}], "+", 
+     RowBox[{"0.023100991341991336`", " ", 
+      SubscriptBox["x", "\<\"Wiltshire 5000\"\>"]}]}], ")"}]}], "+", 
+  RowBox[{
+   SubscriptBox["x", "\<\"SP500\"\>"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"0.00010474675324675264`", " ", 
+      SubscriptBox["x", "\<\"3m T-bill\"\>"]}], "+", 
+     RowBox[{"0.03290355194805196`", " ", 
+      SubscriptBox["x", "\<\"Corporate Bond\"\>"]}], "+", 
+     RowBox[{"0.021928625541125544`", " ", 
+      SubscriptBox["x", "\<\"EAFE\"\>"]}], "-", 
+     RowBox[{"0.018539963203463208`", " ", 
+      SubscriptBox["x", "\<\"Gold\"\>"]}], "+", 
+     RowBox[{"0.011331740259740266`", " ", 
+      SubscriptBox["x", "\<\"long T-bond\"\>"]}], "-", 
+     RowBox[{"0.004473924242424239`", " ", 
+      SubscriptBox["x", "\<\"NASDQ\"\>"]}], "+", 
+     RowBox[{"0.028282945887445884`", " ", 
+      SubscriptBox["x", "\<\"SP500\"\>"]}], "+", 
+     RowBox[{"0.02966224675324676`", " ", 
+      SubscriptBox["x", "\<\"Wiltshire 5000\"\>"]}]}], ")"}]}], "+", 
+  RowBox[{
+   SubscriptBox["x", "\<\"Corporate Bond\"\>"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "0.00032109307359307423`"}], " ", 
+      SubscriptBox["x", "\<\"3m T-bill\"\>"]}], "+", 
+     RowBox[{"0.050006227272727265`", " ", 
+      SubscriptBox["x", "\<\"Corporate Bond\"\>"]}], "+", 
+     RowBox[{"0.024485352813852817`", " ", 
+      SubscriptBox["x", "\<\"EAFE\"\>"]}], "-", 
+     RowBox[{"0.016440080086580086`", " ", 
+      SubscriptBox["x", "\<\"Gold\"\>"]}], "+", 
+     RowBox[{"0.011817077922077927`", " ", 
+      SubscriptBox["x", "\<\"long T-bond\"\>"]}], "-", 
+     RowBox[{"0.0017404870129870105`", " ", 
+      SubscriptBox["x", "\<\"NASDQ\"\>"]}], "+", 
+     RowBox[{"0.03290355194805196`", " ", 
+      SubscriptBox["x", "\<\"SP500\"\>"]}], "+", 
+     RowBox[{"0.037083502164502166`", " ", 
+      SubscriptBox["x", "\<\"Wiltshire 5000\"\>"]}]}], ")"}]}], "+", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"0.000060813852813852694`", " ", 
+      SubscriptBox["x", "\<\"3m T-bill\"\>"]}], "+", 
+     RowBox[{"0.037083502164502166`", " ", 
+      SubscriptBox["x", "\<\"Corporate Bond\"\>"]}], "+", 
+     RowBox[{"0.023100991341991336`", " ", 
+      SubscriptBox["x", "\<\"EAFE\"\>"]}], "-", 
+     RowBox[{"0.016611493506493512`", " ", 
+      SubscriptBox["x", "\<\"Gold\"\>"]}], "+", 
+     RowBox[{"0.010588346320346326`", " ", 
+      SubscriptBox["x", "\<\"long T-bond\"\>"]}], "-", 
+     RowBox[{"0.005340878787878786`", " ", 
+      SubscriptBox["x", "\<\"NASDQ\"\>"]}], "+", 
+     RowBox[{"0.02966224675324676`", " ", 
+      SubscriptBox["x", "\<\"SP500\"\>"]}], "+", 
+     RowBox[{"0.03191300432900434`", " ", 
+      SubscriptBox["x", "\<\"Wiltshire 5000\"\>"]}]}], ")"}], " ", 
+   SubscriptBox["x", "\<\"Wiltshire 5000\"\>"]}]}]], "Output",
+ CellChangeTimes->{{3.7379502527749853`*^9, 3.73795044500066*^9}, 
+   3.737950480966748*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindMinimum", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"vars", ".", 
+      RowBox[{"(", 
+       RowBox[{"Covariants", ".", "vars"}], ")"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Total", "[", "vars", "]"}], "\[Equal]", "1"}], " ", "&&", " ", 
+      RowBox[{
+       RowBox[{"vars", ".", "ER"}], "\[GreaterEqual]", " ", "1.12"}]}], ",", 
+     RowBox[{"Apply", "[", 
+      RowBox[{"And", ",", 
+       RowBox[{"Thread", "[", 
+        RowBox[{"Greater", "[", 
+         RowBox[{"vars", ",", "0"}], "]"}], "]"}]}], "]"}]}], "}"}], ",", 
+   "vars"}], "]"}]], "Input",
+ CellChangeTimes->{{3.737950187281698*^9, 3.737950234435954*^9}, {
+  3.737950297211891*^9, 3.7379502996043873`*^9}, {3.73795045706743*^9, 
+  3.737950461547472*^9}, {3.737950510277279*^9, 3.7379505742926683`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.012620477685151411`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["x", "\<\"3m T-bill\"\>"], "\[Rule]", 
+      "0.15596121312357847`"}], ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"long T-bond\"\>"], "\[Rule]", 
+      "0.014824344841414889`"}], ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"SP500\"\>"], "\[Rule]", "0.37896399276503084`"}],
+      ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"Wiltshire 5000\"\>"], "\[Rule]", 
+      "0.0022860813966016262`"}], ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"Corporate Bond\"\>"], "\[Rule]", 
+      "0.000019827306868698155`"}], ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"NASDQ\"\>"], "\[Rule]", 
+      "5.653768061944357`*^-6"}], ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"EAFE\"\>"], "\[Rule]", "0.24427872341352172`"}], 
+     ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"Gold\"\>"], "\[Rule]", "0.2036601633849219`"}]}],
+     "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.737950237443622*^9, 3.7379503000597878`*^9, 3.7379504619259367`*^9, {
+   3.7379505108079042`*^9, 3.737950586628314*^9}}]
+}, Open  ]],
+
+Cell["\<\
+Vergleich Optimierungsprobleme von Mondello / Mathematica / Wikipedia: Nur 2 \
+Assets zur Optimierung\
+\>", "Text",
+ CellChangeTimes->{{3.737951346407689*^9, 3.737951384188295*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"R2Assets", "=", 
+  RowBox[{"Take", "[", 
+   RowBox[{"R", ",", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "2"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.737951372170944*^9, 3.737951428765233*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "1.075`", ",", "1.084`", ",", "1.061`", ",", "1.052`", ",", "1.055`", ",",
+      "1.077`", ",", "1.109`", ",", "1.127`", ",", "1.156`", ",", "1.117`", 
+     ",", "1.092`", ",", "1.103`", ",", "1.08`", ",", "1.063`", ",", "1.061`",
+      ",", "1.071`", ",", "1.087`", ",", "1.08`", ",", "1.057`", ",", 
+     "1.036`", ",", "1.031`", ",", "1.045`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0.942`", ",", "1.02`", ",", "1.056`", ",", "1.175`", ",", "1.002`", ",", 
+     "0.982`", ",", "0.978`", ",", "0.947`", ",", "1.003`", ",", "1.465`", 
+     ",", "0.985`", ",", "1.159`", ",", "1.366`", ",", "1.309`", ",", 
+     "0.925`", ",", "1.086`", ",", "1.212`", ",", "1.054`", ",", "1.193`", 
+     ",", "1.079`", ",", "1.217`", ",", "0.889`"}], "}"}]}], "}"}]], "Output",\
+
+ CellChangeTimes->{{3.737951398474307*^9, 3.737951429121531*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"vars2Assets", "=", 
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Subscript", "[", 
+      RowBox[{"x", ",", "#"}], "]"}], "&"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\"\<3m T-bill\>\"", ",", "\"\<long T-bond\>\""}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.7379514446140738`*^9, 3.737951461149682*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   SubscriptBox["x", "\<\"3m T-bill\"\>"], ",", 
+   SubscriptBox["x", "\<\"long T-bond\"\>"]}], "}"}]], "Output",
+ CellChangeTimes->{3.737951462638432*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"variance1", "=", 
+  RowBox[{"Variance", "[", 
+   RowBox[{"R2Assets", "[", 
+    RowBox[{"[", "1", "]"}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.737951682390821*^9, 3.7379516968617773`*^9}}],
+
+Cell[BoxData["0.0009277424242424243`"], "Output",
+ CellChangeTimes->{{3.737951692621634*^9, 3.737951697185157*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"variance2", "=", 
+  RowBox[{"Variance", "[", 
+   RowBox[{"R2Assets", "[", 
+    RowBox[{"[", "2", "]"}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.737951698601668*^9, 3.737951705477748*^9}}],
+
+Cell[BoxData["0.023152277056277062`"], "Output",
+ CellChangeTimes->{3.7379517058384457`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Apply", "[", 
+  RowBox[{"And", ",", 
+   RowBox[{"Thread", "[", 
+    RowBox[{"Greater", "[", 
+     RowBox[{"vars2Assets", ",", "0"}], "]"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.737951472648336*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubscriptBox["x", "\<\"3m T-bill\"\>"], ">", "0"}], "&&", 
+  RowBox[{
+   SubscriptBox["x", "\<\"long T-bond\"\>"], ">", "0"}]}]], "Output",
+ CellChangeTimes->{3.7379514731200027`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ER", "=", 
+  RowBox[{"Mean", "[", 
+   RowBox[{"Transpose", "@", "R2Assets"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.737951493118713*^9, 3.737951494070963*^9}},
+ CellID->1719962267],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1.0781363636363637`", ",", "1.0929090909090906`"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.737950104042842*^9, 3.737951494596446*^9},
+ ImageSize->{495, 16},
+ ImageMargins->{{0, 0}, {0, 0}},
+ ImageRegion->{{0, 1}, {0, 1}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Covariants2Assets", "=", 
+  RowBox[{"Covariance", "[", 
+   RowBox[{"Transpose", "[", "R2Assets", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7379514970463543`*^9, 3.73795150918896*^9}, 
+   3.737966060172098*^9},
+ CellID->1517499950],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0.0009277424242424243`", ",", 
+     RowBox[{"-", "0.00008479653679653641`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.00008479653679653641`"}], ",", "0.023152277056277062`"}],
+     "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.737966060999855*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MatrixForm", "[", "%", "]"}]], "Input",
+ CellChangeTimes->{{3.737966064740652*^9, 3.7379660668270607`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"0.0009277424242424243`", 
+      RowBox[{"-", "0.00008479653679653641`"}]},
+     {
+      RowBox[{"-", "0.00008479653679653641`"}], "0.023152277056277062`"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.737966067144525*^9}]
+}, Open  ]],
+
+Cell["Minimierungs-Formulierung von Wikipedia", "Text",
+ CellChangeTimes->{{3.7379515754205914`*^9, 3.737951587301362*^9}},
+ FontSize->24,
+ Background->RGBColor[0.9, 1, 1]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindMinimum", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"vars2Assets", ".", 
+      RowBox[{"(", 
+       RowBox[{"Covariants2Assets", ".", "vars2Assets"}], ")"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Total", "[", "vars2Assets", "]"}], "\[Equal]", "1"}], " ", "&&",
+       " ", 
+      RowBox[{
+       RowBox[{"vars2Assets", ".", "ER"}], "\[GreaterEqual]", " ", "1.05"}]}],
+      ",", 
+     RowBox[{"Apply", "[", 
+      RowBox[{"And", ",", 
+       RowBox[{"Thread", "[", 
+        RowBox[{"Greater", "[", 
+         RowBox[{"vars2Assets", ",", "0"}], "]"}], "]"}]}], "]"}]}], "}"}], 
+   ",", "vars2Assets"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7379515372540197`*^9, 3.7379515547901363`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.0008854644407458805`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["x", "\<\"3m T-bill\"\>"], "\[Rule]", 
+      "0.9581119805250706`"}], ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"long T-bond\"\>"], "\[Rule]", 
+      "0.041888019474929344`"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.737951556025251*^9}]
+}, Open  ]],
+
+Cell["Minimierungs-Formulierung von Mondello", "Text",
+ CellChangeTimes->{{3.7379515754205914`*^9, 3.7379515932130632`*^9}},
+ FontSize->24,
+ Background->RGBColor[0.9, 1, 1]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"vars2Assets", ".", 
+  RowBox[{"(", 
+   RowBox[{"Covariants2Assets", ".", "vars2Assets"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.737951599548635*^9, 3.7379516265341797`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubscriptBox["x", "\<\"3m T-bill\"\>"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"0.0009277424242424243`", " ", 
+      SubscriptBox["x", "\<\"3m T-bill\"\>"]}], "-", 
+     RowBox[{"0.00008479653679653641`", " ", 
+      SubscriptBox["x", "\<\"long T-bond\"\>"]}]}], ")"}]}], "+", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "0.00008479653679653641`"}], " ", 
+      SubscriptBox["x", "\<\"3m T-bill\"\>"]}], "+", 
+     RowBox[{"0.023152277056277062`", " ", 
+      SubscriptBox["x", "\<\"long T-bond\"\>"]}]}], ")"}], " ", 
+   SubscriptBox["x", "\<\"long T-bond\"\>"]}]}]], "Output",
+ CellChangeTimes->{{3.7379516118055067`*^9, 3.737951627109837*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"vars", "[", 
+     RowBox[{"[", "1", "]"}], "]"}], "2"], "variance1"}], "+", 
+  RowBox[{
+   SuperscriptBox[
+    RowBox[{"vars", "[", 
+     RowBox[{"[", "2", "]"}], "]"}], "2"], "variance2"}], "+", 
+  RowBox[{"2", " ", 
+   RowBox[{"vars", "[", 
+    RowBox[{"[", "1", "]"}], "]"}], " ", 
+   RowBox[{"vars", "[", 
+    RowBox[{"[", "2", "]"}], "]"}], " ", 
+   RowBox[{"Covariants2Assets", "[", 
+    RowBox[{"[", 
+     RowBox[{"1", ",", "2"}], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.737951631284401*^9, 3.737951641109935*^9}, {
+  3.737951709966118*^9, 3.73795175638142*^9}, {3.7379520171903687`*^9, 
+  3.737952021822003*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"0.0009277424242424243`", " ", 
+   SubsuperscriptBox["x", "\<\"3m T-bill\"\>", "2"]}], "-", 
+  RowBox[{"0.00016959307359307283`", " ", 
+   SubscriptBox["x", "\<\"3m T-bill\"\>"], " ", 
+   SubscriptBox["x", "\<\"long T-bond\"\>"]}], "+", 
+  RowBox[{"0.023152277056277062`", " ", 
+   SubsuperscriptBox["x", "\<\"long T-bond\"\>", "2"]}]}]], "Output",
+ CellChangeTimes->{3.737951633159545*^9, 3.737951724345055*^9, 
+  3.7379517575801277`*^9, 3.737952022925702*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindMinimum", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"vars", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "2"], "variance1"}], "+", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"vars", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], "2"], "variance2"}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"vars", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], " ", 
+       RowBox[{"vars", "[", 
+        RowBox[{"[", "2", "]"}], "]"}], " ", 
+       RowBox[{"Covariants2Assets", "[", 
+        RowBox[{"[", 
+         RowBox[{"1", ",", "2"}], "]"}], "]"}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Total", "[", "vars2Assets", "]"}], "\[Equal]", "1"}], " ", "&&",
+       " ", 
+      RowBox[{
+       RowBox[{"vars2Assets", ".", "ER"}], ">=", " ", "1.085"}]}], ",", 
+     RowBox[{"Apply", "[", 
+      RowBox[{"And", ",", 
+       RowBox[{"Thread", "[", 
+        RowBox[{"Greater", "[", 
+         RowBox[{"vars2Assets", ",", "0"}], "]"}], "]"}]}], "]"}]}], "}"}], 
+   ",", "vars2Assets"}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.7379517914152184`*^9, {3.737951846895525*^9, 3.737951862858203*^9}, 
+   3.737952030112792*^9, {3.737960840024726*^9, 3.7379608894079638`*^9}, {
+   3.7379671550655107`*^9, 3.7379671603508577`*^9}, {3.737967486638414*^9, 
+   3.737967496556953*^9}, 3.737967754094247*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.00522163956645457`", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["x", "\<\"3m T-bill\"\>"], "\[Rule]", 
+      "0.5353808443629823`"}], ",", 
+     RowBox[{
+      SubscriptBox["x", "\<\"long T-bond\"\>"], "\[Rule]", 
+      "0.4646191556370178`"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.7379518057267637`*^9, {3.737951855882059*^9, 3.73795186368855*^9}, 
+   3.73795203066609*^9, {3.737960841115202*^9, 3.737960889728636*^9}, {
+   3.7379671562805777`*^9, 3.7379671611317453`*^9}, {3.737967488729731*^9, 
+   3.737967497170615*^9}, 3.737967755195752*^9}]
+}, Open  ]],
+
+Cell["Minimierung Basics", "Text",
+ CellChangeTimes->{{3.7379613187880793`*^9, 3.737961324978215*^9}},
+ FontSize->24,
+ Background->RGBColor[0.9, 1, 1]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindMinimum", "[", 
+  RowBox[{
+   RowBox[{"x", " ", 
+    RowBox[{"Cos", "[", "x", "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "2"}], "}"}]}], "]"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"-", "3.2883713955908966`"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", "\[Rule]", "3.425618459492147`"}], "}"}]}], "}"}]], "Output",\
+
+ CellChangeTimes->{3.737961349379181*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"wtest1", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7379661181173143`*^9, 3.737966128803334*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"wtest1", ".", 
+  RowBox[{"(", 
+   RowBox[{"Covariants2Assets", ".", "wtest1"}], ")"}]}]], "Input",
+ CellChangeTimes->{{3.737966130592278*^9, 3.737966144340921*^9}}],
+
+Cell[BoxData["0.023910426406926415`"], "Output",
+ CellChangeTimes->{3.737966144718708*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["Covariants2Assets"], "Input",
+ CellChangeTimes->{{3.737966400082761*^9, 3.737966402868102*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0.0009277424242424243`", ",", 
+     RowBox[{"-", "0.00008479653679653641`"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "0.00008479653679653641`"}], ",", "0.023152277056277062`"}],
+     "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.737966403429696*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"vars2Assets", ".", "ER"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"1.0781363636363637`", " ", 
+   SubscriptBox["x", "\<\"3m T-bill\"\>"]}], "+", 
+  RowBox[{"1.0929090909090906`", " ", 
+   SubscriptBox["x", "\<\"long T-bond\"\>"]}]}]], "Output",
+ CellChangeTimes->{3.737967304518971*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["ER"], "Input",
+ CellChangeTimes->{{3.7379673074642687`*^9, 3.7379673076190577`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1.0781363636363637`", ",", "1.0929090909090906`"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.7379673082313013`*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1920, 1056},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 104, 1, 93, "Title"],
+Cell[687, 25, 3406, 62, 203, "Input",
+ CellID->281723545],
+Cell[CellGroupData[{
+Cell[4118, 91, 128, 2, 32, "Input"],
+Cell[4249, 95, 2477, 47, 178, "Output"]
+}, Open  ]],
+Cell[6741, 145, 178, 6, 32, "Input",
+ CellID->153203716],
+Cell[CellGroupData[{
+Cell[6944, 155, 133, 4, 32, "Input",
+ CellID->446438878],
+Cell[7080, 161, 422, 10, 32, "Output"]
+}, Open  ]],
+Cell[7517, 174, 172, 5, 32, "Input",
+ CellID->563381096],
+Cell[CellGroupData[{
+Cell[7714, 183, 1551, 43, 107, "Input",
+ CellID->475457553],
+Cell[9268, 228, 1130, 32, 42, "Output"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10447, 266, 168, 2, 93, "Title"],
+Cell[CellGroupData[{
+Cell[10640, 272, 69, 1, 30, "Input"],
+Cell[10712, 275, 3258, 59, 172, "Output"]
+}, Open  ]],
+Cell[13985, 337, 152, 4, 32, "Input"],
+Cell[CellGroupData[{
+Cell[14162, 345, 501, 13, 35, "Input"],
+Cell[14666, 360, 481, 11, 35, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15184, 376, 182, 5, 32, "Input"],
+Cell[15369, 383, 649, 18, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16055, 406, 177, 4, 35, "Input"],
+Cell[16235, 412, 7235, 166, 203, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23507, 583, 829, 21, 35, "Input"],
+Cell[24339, 606, 1145, 31, 42, "Output"]
+}, Open  ]],
+Cell[25499, 640, 191, 4, 31, "Text"],
+Cell[CellGroupData[{
+Cell[25715, 648, 228, 6, 32, "Input"],
+Cell[25946, 656, 914, 18, 52, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26897, 679, 356, 10, 35, "Input"],
+Cell[27256, 691, 195, 5, 35, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27488, 701, 221, 5, 32, "Input"],
+Cell[27712, 708, 115, 1, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27864, 714, 219, 5, 32, "Input"],
+Cell[28086, 721, 92, 1, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28215, 727, 231, 6, 32, "Input"],
+Cell[28449, 735, 221, 6, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28707, 746, 207, 5, 32, "Input",
+ CellID->1719962267],
+Cell[28917, 753, 264, 7, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29218, 765, 260, 6, 32, "Input",
+ CellID->1517499950],
+Cell[29481, 773, 345, 10, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[29863, 788, 131, 2, 32, "Input"],
+Cell[29997, 792, 756, 20, 64, "Output"]
+}, Open  ]],
+Cell[30768, 815, 172, 3, 58, "Text"],
+Cell[CellGroupData[{
+Cell[30965, 822, 748, 21, 35, "Input"],
+Cell[31716, 845, 387, 11, 35, "Output"]
+}, Open  ]],
+Cell[32118, 859, 173, 3, 58, "Text"],
+Cell[CellGroupData[{
+Cell[32316, 866, 200, 4, 35, "Input"],
+Cell[32519, 872, 725, 19, 35, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33281, 896, 697, 20, 36, "Input"],
+Cell[33981, 918, 495, 10, 40, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34513, 933, 1409, 38, 73, "Input"],
+Cell[35925, 973, 630, 15, 35, "Output"]
+}, Open  ]],
+Cell[36570, 991, 151, 3, 58, "Text"],
+Cell[CellGroupData[{
+Cell[36746, 998, 192, 6, 32, "Input"],
+Cell[36941, 1006, 226, 7, 32, "Output"]
+}, Open  ]],
+Cell[37182, 1016, 189, 5, 32, "Input"],
+Cell[CellGroupData[{
+Cell[37396, 1025, 188, 4, 35, "Input"],
+Cell[37587, 1031, 90, 1, 30, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37714, 1037, 109, 1, 30, "Input"],
+Cell[37826, 1040, 345, 10, 32, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[38208, 1055, 60, 1, 30, "Input"],
+Cell[38271, 1058, 254, 6, 34, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[38562, 1069, 98, 1, 30, "Input"],
+Cell[38663, 1072, 156, 4, 32, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
