@@ -72,9 +72,51 @@ if __name__ == "__main__":
     all_prices_frame.cov()
     
     
-    #-----Test Stuff-----    
-        
+
     
+    
+    #-----Test Minimization Function-----
+    from scipy.optimize import minimize
+    def func(x):
+        return x[0]*x[1]
+    
+    bnds=((0,5),(0,5))
+    
+    cons=({'type':'eq','fun':lambda x: x[0] + x[1] - 5})
+
+    x0=[0.2 , 0.9]
+    
+    res = minimize(func,x0,method='SLSQP',bounds=bnds,constraints=cons)
+    
+    x0 = (lambda x: x/np.sum(x))(np.random.uniform(low = 0, high = 1, size = 2))
+    
+    ER = np.array([1.07814, 1.09291])
+    
+    constraints1 = ({'type': 'eq', 'fun': lambda weights:  np.sum(weights) - 1})
+    constraints2 = ({'type': 'ineq', 'fun': lambda weights:  weights @ ER - 1.085})
+    constraints = [constraints1, constraints2]
+    
+    bounds = [(0,1)] * 2
+    
+    
+    a = np.array( [[0.000927742, -0.0000847965], [-0.0000847965, 0.0231523]])
+    b = np.array([1 , 1])
+    
+    print(b @ (a @ b))
+    
+    def min_markowitz(weights, cov_mat):
+        return weights @ (cov_mat @ weights)
+    
+    min_markowitz(b , a)    
+    
+    def target_func(weights):
+        return min_markowitz(weights, a)
+    
+    target_func(b)
+    
+    res = minimize(target_func, x0, method='SLSQP', bounds = bounds, constraints = constraints)
+    
+    #-----Test Stuff-----    
     
     p1 = np.array(all_prices[0].price.pct_change(1).values)
     p2 = np.array(all_prices[1].price.pct_change(1).values)
