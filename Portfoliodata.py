@@ -20,7 +20,7 @@ def get_fond_dataframes(start_date, end_date, fond_id):
     #-----Get data from Morningstar-Tool-----
     data_url = ("http://tools.morningstar.at/api/rest.svc/timeseries_price/"
                 "5370efewxk?id={fond_id}%5D2%5D1%5D&currencyId=EUR&"
-                "idtype=Morningstar&priceType=&frequency=weekly&startDate={start_date}&"
+                "idtype=Morningstar&priceType=&frequency=monthly&startDate={start_date}&"
                 "endDate={end_date}&outputType=COMPACTJSON").format(fond_id = fond_id, 
                                                                     start_date = start_date, 
                                                                     end_date = end_date)  
@@ -35,16 +35,39 @@ def get_fond_dataframes(start_date, end_date, fond_id):
     return fond_prices
     
 
+def get_Optimized_Portfolio( Covar_Mat, MeanVals, Exp_Value ):
+    
+    constraints1 = ({'type': 'eq', 'fun': lambda weights:  np.sum(weights) - 1})
+    constraints2 = ({'type': 'ineq', 'fun': lambda weights:  weights @ Exp_Ret - Exp_Value})
+    constraints = [constraints1, constraints2]
+    
+    bounds = [(0,1)] * len(MeanVals)
+    
+    #-----Define minimization Problem for Modern-Portfolio-Theory-----
+    def min_markowitz(weights, cov_mat):
+        return weights @ (cov_mat @ weights)  
+    
+    def target_func(weights):
+        return min_markowitz(weights, Covar_Mat)
+    
+    #-----Do the Minimization with ScipY-----
+    result = minimize(target_func, x0, jac = False, method='SLSQP', bounds = bounds, constraints = constraints)
+    return result
+
 if __name__ == "__main__":
     
     #-----Set Start & End Date
-    start_date = "2011-01-01"
+    start_date = "2015-01-01"
     end_date = str(datetime.datetime.today().date())
     
+    
+    fond_ids = ["F000000IK5","F0GBR06DWD","F00000T4KE","F00000V70D","F0000007LD","F00000LNTR","F000000255",
+                "F0000023SJ","F00000QLUP"]  
+    
     #-----Set Fond ids----
-    fond_ids = ["F0GBR052SY","0P0000VHOL","0P0000JNCV","F000002J6W","F0000045M3","F0GBR04LVP",
-               "F0GBR04FOH","F0000020MG","F00000W0YC","F000000ECJ","F00000OQ2I","F000000PWQ",
-                "F0GBR04D0X","0P0000M7TK","F0GBR04D20","F00000JRBY","F0GBR04PMR","F000005KE0","F0GBR04CIW"]
+#    fond_ids = ["F0GBR052SY","0P0000VHOL","0P0000JNCV","F000002J6W","F0000045M3","F0GBR04LVP",
+#               "F0GBR04FOH","F0000020MG","F00000W0YC","F000000ECJ","F00000OQ2I","F000000PWQ",
+#                "F0GBR04D0X","0P0000M7TK","F0GBR04D20","F00000JRBY","F0GBR04PMR","F000005KE0","F0GBR04CIW"]
 #"F00000MGKD" 2014
     #"F00000JRBY" 2011
 #    fond_ids = ["F0GBR052SY","0P0000VHOL","0P0000JNCV","F0000045M3","F0GBR04LVP"]
@@ -97,9 +120,44 @@ if __name__ == "__main__":
     #-----Do the Minimization with ScipY-----
     res = minimize(target_func, x0, jac = False, method='SLSQP', bounds = bounds, constraints = constraints)
     
+    #-----Set the expected return 'Exp_Value' that the portfolio should yield in 1 year-----
+    #-----Choose wether the data was gathered daily, weekly or monthly-----
+    weekly  = 1.0 / 52
+    daily   = 1.0 / 251
+    monthly = 1.0 / 12  
     
-
+    Exp_Ret_List = np.linspace(1.04, 1.20, num = 20)
     
+    fond_list = []
+    
+    for i in Exp_Ret_List:
+        
+        Exp_Value = i**(monthly)        
+        fond_list.append( get_Optimized_Portfolio( Covar_Mat, MeanVals, Exp_Value ) )
+    
+    
+    x_axis = []
+    
+    for i in fond_list:
+        x_axis.append(i.fun * np.sqrt(12))
+    
+    
+    #-----Plot the Efficiency Frontier-----    
+    import matplotlib.pyplot as plt    
+    
+    plt.plot(x_axis, Exp_Ret_List)
+    plt.ylabel('Expected Return')
+    plt.xlabel('Annual Standard Deviation')
+    plt.title('MPT Efficiency Frontier')
+    plt.grid(True)
+    plt.show()
+  
+    #-----Print out Fonds between 1.08 and 1.16 Expected return
+    np.set_printoptions(precision=4)  
+    for i in range(5,20):
+        print(i, np.round(fond_list[i].x, 5), Exp_Ret_List[i])
+        #print("{:.1f} {:.1f}".format(i, fond_list[i].x))
+        #print("{:.4f} {:.4f} {:.4f}".format(i, fond_list[i].x, Exp_Ret_List[i]))
     
 #    #-----Test Minimization Function-----
 #    from scipy.optimize import minimize
