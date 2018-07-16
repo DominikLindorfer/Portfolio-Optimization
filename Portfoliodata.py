@@ -57,24 +57,35 @@ def get_Optimized_Portfolio( Covar_Mat, MeanVals, Exp_Value ):
 if __name__ == "__main__":
     
     #-----Set Start & End Date
-    start_date = "2015-01-01"
+    start_date = "2011-01-01"
     end_date = str(datetime.datetime.today().date())
     
     
-    fond_ids = ["F000000IK5","F0GBR06DWD","F00000T4KE","F00000V70D","F0000007LD","F00000LNTR","F000000255",
-                "F0000023SJ","F00000QLUP"]  
-    
+#    fond_ids = ["F000000IK5","F0GBR06DWD","F00000T4KE","F00000V70D","F0000007LD","F00000LNTR","F000000255",
+#               "F0000023SJ","F00000QLUP"]  
+
     #-----Set Fond ids----
-#    fond_ids = ["F0GBR052SY","0P0000VHOL","0P0000JNCV","F000002J6W","F0000045M3","F0GBR04LVP",
-#               "F0GBR04FOH","F0000020MG","F00000W0YC","F000000ECJ","F00000OQ2I","F000000PWQ",
-#                "F0GBR04D0X","0P0000M7TK","F0GBR04D20","F00000JRBY","F0GBR04PMR","F000005KE0","F0GBR04CIW"]
-#"F00000MGKD" 2014
-    #"F00000JRBY" 2011
-#    fond_ids = ["F0GBR052SY","0P0000VHOL","0P0000JNCV","F0000045M3","F0GBR04LVP"]
+#    fond_ids = ["F0GBR06DWD","F00000T4KE","F0000007LD","F00000LNTR","F000000255","F0000023SJ","F00000QLUP",
+#                "0P0000VHOL","0P0000JNCV","F000002J6W","F0GBR04LVP","F0GBR04FOH","F0GBR04D0X","0P0000M7TK",
+#                "F0GBR04D20","F0GBR04PMR","F000005KE0","F0GBR04CIW","F0GBR064OK"]
     
-#    fond_ids = ["F0GBR052SY","F00000X0M9","0P0000VHOL","0P0000JNCV","F000002J6W","F0000045M3","F0GBR04LVP",
-#                "F0GBR04FOH","F0000020MG","F00000W0YC","F00000MGKD","F000000ECJ","F00000OQ2I","F000000PWQ",
-#                "F0GBR04D0X","0P0000M7TK","F0GBR04D20","F00000JRBY","F0GBR04PMR","F000005KE0","F0GBR04CIW"]
+    
+    fond_ids = ["F0GBR06DWD",
+                "F00000T4KE",                
+                "F0000007LD",
+                "F00000LNTR",
+                "F00000QLUP",
+                "0P0000VHOL",
+                "0P0000JNCV",
+                "F000002J6W",
+                "F0GBR04LVP",
+                "F000005KE0",
+                "F0GBR04CIW"]
+
+    
+    
+
+#"F00000V70D" frühestens 2015
 
     all_prices = []
     
@@ -102,8 +113,6 @@ if __name__ == "__main__":
     
     #-----Set Constraints: Only Long Portfolios sum(w_i) == 1 && Expected Return > value-----
     
-    
-    
     constraints1 = ({'type': 'eq', 'fun': lambda weights:  np.sum(weights) - 1})
     constraints2 = ({'type': 'ineq', 'fun': lambda weights:  weights @ Exp_Ret - 1.001})
     constraints = [constraints1, constraints2]
@@ -126,7 +135,7 @@ if __name__ == "__main__":
     daily   = 1.0 / 251
     monthly = 1.0 / 12  
     
-    Exp_Ret_List = np.linspace(1.04, 1.20, num = 20)
+    Exp_Ret_List = np.linspace(1.02, 1.20, num = 20)
     
     fond_list = []
     
