@@ -13,7 +13,7 @@ from functools import reduce
 from sqlalchemy import create_engine
 from selenium import webdriver
 from bs4 import BeautifulSoup
-
+from autograd import value_and_grad
 
 def get_fond_dataframes(start_date, end_date, fond_id):
     
@@ -50,8 +50,12 @@ def get_Optimized_Portfolio( Covar_Mat, MeanVals, Exp_Value ):
     def target_func(weights):
         return min_markowitz(weights, Covar_Mat)
     
+    target_with_grad = value_and_grad(target_func)
+    
+    
     #-----Do the Minimization with ScipY-----
-    result = minimize(target_func, x0, jac = False, method='SLSQP', bounds = bounds, constraints = constraints)
+    result = minimize(target_with_grad, x0, jac = True, method='SLSQP', bounds = bounds, constraints = constraints, tol = 1e-30, options = {"maxiter": 1500})
+#    result = minimize(target_func, x0, jac = False, method='SLSQP', bounds = bounds, constraints = constraints, tol = 1e-30, options = {"maxiter": 3500})
     return result
 
 if __name__ == "__main__":
@@ -65,22 +69,21 @@ if __name__ == "__main__":
 #               "F0000023SJ","F00000QLUP"]  
 
     #-----Set Fond ids----
-#    fond_ids = ["F0GBR06DWD","F00000T4KE","F0000007LD","F00000LNTR","F000000255","F0000023SJ","F00000QLUP",
-#                "0P0000VHOL","0P0000JNCV","F000002J6W","F0GBR04LVP","F0GBR04FOH","F0GBR04D0X","0P0000M7TK",
-#                "F0GBR04D20","F0GBR04PMR","F000005KE0","F0GBR04CIW","F0GBR064OK"]
+    fond_ids = ["F0GBR06DWD","F00000T4KE","F0000007LD","F00000LNTR","F000000255","F0000023SJ","F00000QLUP",
+                "0P0000VHOL","0P0000JNCV","F000002J6W","F0GBR04LVP","F0GBR04FOH","F0GBR04D0X","0P0000M7TK",
+                "F0GBR04D20","F0GBR04PMR","F000005KE0","F0GBR04CIW","F0GBR064OK","F0000020H2"]
     
-    
-    fond_ids = ["F0GBR06DWD",
-                "F00000T4KE",                
-                "F0000007LD",
-                "F00000LNTR",
-                "F00000QLUP",
-                "0P0000VHOL",
-                "0P0000JNCV",
-                "F000002J6W",
-                "F0GBR04LVP",
-                "F000005KE0",
-                "F0GBR04CIW"]
+#    fond_ids = ["F0GBR06DWD",
+#                "F00000T4KE",
+#                "F0000020H2",
+#                "F0000007LD",
+#                "F00000LNTR",
+#        
+#                "0P0000JNCV",
+#                "F000002J6W",
+#                "F0GBR04LVP",
+#                "F0GBR04CIW"               
+#                ]
 
     
     
@@ -110,6 +113,8 @@ if __name__ == "__main__":
     #-----Optimize the Weights for different Fonds-----
     from scipy.optimize import minimize
     x0 = (lambda x: x/np.sum(x))(np.random.uniform(low = 0, high = 1, size = len(MeanVals)))
+    
+   # x0 = np.linspace(1 / len(MeanVals), 1 / len(MeanVals), num = len(MeanVals))
     
     #-----Set Constraints: Only Long Portfolios sum(w_i) == 1 && Expected Return > value-----
     
@@ -166,7 +171,15 @@ if __name__ == "__main__":
     for i in range(5,20):
         print(i, np.round(fond_list[i].x, 5), Exp_Ret_List[i])
         #print("{:.1f} {:.1f}".format(i, fond_list[i].x))
-        #print("{:.4f} {:.4f} {:.4f}".format(i, fond_list[i].x, Exp_Ret_List[i]))
+        #print("{:.4f} {:.4f} {:.4f}".format(i, fond_list[i].x, Exp_Ret_List[i]))    
+    
+    np.round(fond_list[10].x, 5)
+    Exp_Ret
+    
+    np.round(fond_list[10].x, 5) * Exp_Ret
+    
+    (np.sum(np.round(fond_list[10].x, 5) * Exp_Ret))**12
+    
     
 #    #-----Test Minimization Function-----
 #    from scipy.optimize import minimize
