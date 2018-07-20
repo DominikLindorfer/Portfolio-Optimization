@@ -65,14 +65,12 @@ if __name__ == "__main__":
     end_date = str(datetime.datetime.today().date())
     
     
-#    fond_ids = ["F000000IK5","F0GBR06DWD","F00000T4KE","F00000V70D","F0000007LD","F00000LNTR","F000000255",
-#               "F0000023SJ","F00000QLUP"]  
-
     #-----Set Fond ids----
-    fond_ids = ["F0GBR06DWD","F00000T4KE","F0000007LD","F00000LNTR","F000000255","F0000023SJ","F00000QLUP",
+    fond_ids = ["F0GBR06DWD","F00000T4KE","F0000007LD","F00000LNTR","F000000255","F00000QLUP",
                 "0P0000VHOL","0P0000JNCV","F000002J6W","F0GBR04LVP","F0GBR04FOH","F0GBR04D0X","0P0000M7TK",
                 "F0GBR04D20","F0GBR04PMR","F000005KE0","F0GBR04CIW","F0GBR064OK","F0000020H2"]
-    
+   
+    #"F0000023SJ", soft closed?
 #    fond_ids = ["F0GBR06DWD",
 #                "F00000T4KE",
 #                "F0000020H2",
