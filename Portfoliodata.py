@@ -69,25 +69,7 @@ if __name__ == "__main__":
     fond_ids = ["F0GBR06DWD","F00000T4KE","F0000007LD","F00000LNTR","F000000255","F00000QLUP",
                 "0P0000VHOL","0P0000JNCV","F000002J6W","F0GBR04LVP","F0GBR04FOH","F0GBR04D0X","0P0000M7TK",
                 "F0GBR04D20","F0GBR04PMR","F000005KE0","F0GBR04CIW","F0GBR064OK","F0000020H2"]
-   
-    #"F0000023SJ", soft closed?
-#    fond_ids = ["F0GBR06DWD",
-#                "F00000T4KE",
-#                "F0000020H2",
-#                "F0000007LD",
-#                "F00000LNTR",
-#        
-#                "0P0000JNCV",
-#                "F000002J6W",
-#                "F0GBR04LVP",
-#                "F0GBR04CIW"               
-#                ]
-
-    
-    
-
-#"F00000V70D" frühestens 2015
-
+       
     all_prices = []
     
     #-----Loop over all fonds and collect data-----
