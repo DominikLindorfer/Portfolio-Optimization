@@ -2,6 +2,8 @@
 
 This project computes the MPT Efficiency Frontier, that is the set of optimal portfolios that offer the highest expected return for a defined level of risk, for portfolios of Funds and ETFs by using data from the [Morningstar](www.morningstar.de) webpage.
 
+![EF_Example](https://user-images.githubusercontent.com/21077042/95654896-7aeb9900-0b03-11eb-8156-91879e922a44.png)
+
 ## Background
 
 At 27 years I was looking for ways to invest the money I earned during my PhD. Back then, I was young, unbound and didn't need the money for things other than for my savings account. After getting the "hot tips" from family and friends I attended [Theodoro Cocca's Asset Managment](https://www.jku.at/institut-fuer-betriebliche-finanzwirtschaft/ueber-uns/team/univ-prof-dr-teodoro-d-cocca/) class at JKU where I discovered [Mondello's Finance Book](https://www.springer.com/de/book/9783658131982), which provides an excellent mathematical introduction to portfolio analysis, particularly [modern portfolio theory](https://www.investopedia.com/terms/m/modernportfoliotheory.asp) (MPT) developed by Markowitz.
