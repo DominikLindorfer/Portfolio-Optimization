@@ -10,7 +10,7 @@ import pandas as pd
 import numpy as np
 import datetime, requests, re, time
 from functools import reduce
-from sqlalchemy import create_engine
+# from sqlalchemy import create_engine
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from autograd import value_and_grad
@@ -54,22 +54,22 @@ def get_Optimized_Portfolio( Covar_Mat, MeanVals, Exp_Value ):
     
     
     #-----Do the Minimization with ScipY-----
-    result = minimize(target_with_grad, x0, jac = True, method='SLSQP', bounds = bounds, constraints = constraints, tol = 1e-30, options = {"maxiter": 1500})
-#    result = minimize(target_func, x0, jac = False, method='SLSQP', bounds = bounds, constraints = constraints, tol = 1e-30, options = {"maxiter": 3500})
+#    result = minimize(target_with_grad, x0, jac = True, method='SLSQP', bounds = bounds, constraints = constraints, tol = 1e-30, options = {"maxiter": 1500})
+    result = minimize(target_func, x0, jac = False, method='SLSQP', bounds = bounds, constraints = constraints, tol = 1e-30, options = {"maxiter": 3500})
     return result
 
 if __name__ == "__main__":
     
     #-----Set Start & End Date
-    start_date = "2011-01-01"
+    start_date = "2012-01-01"
     end_date = str(datetime.datetime.today().date())
     
     
     #-----Set Fond ids----
-    fond_ids = ["F0GBR06DWD","F00000T4KE","F0000007LD","F00000LNTR","F000000255","F00000QLUP",
+    fond_ids = ["F0GBR06DWD","F00000T4KE","F000000255","F00000QLUP",
                 "0P0000VHOL","0P0000JNCV","F000002J6W","F0GBR04LVP","F0GBR04FOH","F0GBR04D0X","0P0000M7TK",
                 "F0GBR04D20","F0GBR04PMR","F000005KE0","F0GBR04CIW","F0GBR064OK","F0000020H2"]
-       
+    #"F0000007LD","F00000LNTR"
     all_prices = []
     
     #-----Loop over all fonds and collect data-----
@@ -128,8 +128,7 @@ if __name__ == "__main__":
         
         Exp_Value = i**(monthly)        
         fond_list.append( get_Optimized_Portfolio( Covar_Mat, MeanVals, Exp_Value ) )
-    
-    
+
     x_axis = []
     
     for i in fond_list:
@@ -141,7 +140,7 @@ if __name__ == "__main__":
     
     plt.plot(x_axis, Exp_Ret_List)
     plt.ylabel('Expected Return')
-    plt.xlabel('Annual Standard Deviation')
+    plt.xlabel('Standard Deviation')
     plt.title('MPT Efficiency Frontier')
     plt.grid(True)
     plt.show()
