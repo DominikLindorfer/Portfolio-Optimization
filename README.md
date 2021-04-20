@@ -12,7 +12,7 @@ MPT is usually used to construct portfolios of stocks that minimizes the risk fo
 
 ## Usage
 
-To aquire historical data without paying for access, I web scrape the charts provided on the [Morningstar website](www.morningstar.de). The actual optimization is done afterwards, using phython's [SciPy](https://www.scipy.org/). Thereafter the "MPT Efficiency Frontier" (set of optimal portfolios that offer the highest expected return for a defined level of risk) is computed and printed out. 
+To aquire historical data without paying for access, I web scrape the charts provided on the [Morningstar website](www.morningstar.de). The actual optimization is done afterwards, using Python's [SciPy](https://www.scipy.org/). Thereafter the "MPT Efficiency Frontier" (set of optimal portfolios that offer the highest expected return for a defined level of risk) is computed and printed out. 
 
 This project's aim is to provide a simple tool to investment beginners and a starting point for more sophisticated / detailed portfolio analysis.
 
